@@ -38,31 +38,27 @@ public class Play {
         return sc.nextLine();
     }
 
-    private void executeCommand(CommandManager manager, String method) {
-        if (isEdit(method)){
-            manager.edit(new TextCommand(Text.builder().editMethod(method).build()));
-        }else if (isUndo(method)){
+    private void executeCommand(CommandManager manager, String command) {
+        if (isEdit(command)){
+            manager.edit(new TextCommand(Text.builder().editMethod(command).build()));
+        }else if (isUndo(command)){
             manager.undo();
-        }else if (isRedo(method)){
+        }else if (isRedo(command)){
             manager.redo();
-        }else if (isHelp(method)){
+        }else if (isHelp(command)){
             printHelper();
-        }else if (isExit(method)){
+        }else if (isExit(command)){
             exit();
         }else {
             throw new IllegalArgumentException(""+INVALID_COMMAND + HELP_COMMAND);
         }
     }
 
-    private boolean isEdit(String method) {
-        return method.startsWith("edit");
-    }
-    private boolean isUndo(String method) { return method.equals("undo"); }
-    private boolean isRedo(String method) { return method.equals("redo"); }
-    private boolean isHelp(String method) {
-        return method.equals("help") || method.equals("?");
-    }
-    private boolean isExit(String method) { return method.equals("exit"); }
+    private boolean isEdit(String command) { return command.startsWith("edit"); }
+    private boolean isUndo(String command) { return command.equals("undo"); }
+    private boolean isRedo(String command) { return command.equals("redo"); }
+    private boolean isHelp(String command) { return command.equals("help") || command.equals("?"); }
+    private boolean isExit(String command) { return command.equals("exit"); }
 
     private void printHelper() {
         String sb = "\n출력된 텍스트를 수정하시려면 edit(숫자:시작인덱스 , 숫자:끝인덱스 , \"문자열\":치환할 문자)을 입력해주세요.\n" +
