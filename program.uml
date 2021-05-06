@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/study/easy-text-editor/src/main/java/com/iirtech/program</OriginalElement>
+  <nodes>
+    <node x="27.670833333333434" y="842.0">com.iirtech.program.Main</node>
+    <node x="10.5" y="153.0">com.iirtech.program.editor.Text</node>
+    <node x="64.90131578947378" y="354.0">com.iirtech.program.editor.TextCommand</node>
+    <node x="41.670833333333434" y="735.0">com.iirtech.program.editor.Play</node>
+    <node x="158.67083333333343" y="533.0">com.iirtech.program.editor.CommandManager</node>
+    <node x="5.0" y="0.0">com.iirtech.program.editor.Message</node>
+    <node x="198.50000000000003" y="199.0">com.iirtech.program.editor.Command</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.iirtech.program.editor.Play" target="com.iirtech.program.editor.TextCommand" relationship="CREATE">
+      <point x="-25.670833333333434" y="-28.5" />
+      <point x="-68.40131578947378" y="63.5" />
+    </edge>
+    <edge source="com.iirtech.program.editor.Play" target="com.iirtech.program.editor.Text" relationship="DEPENDENCY">
+      <point x="-55.26951754385965" y="-28.5" />
+      <point x="-47.098684210526216" y="74.5" />
+    </edge>
+    <edge source="com.iirtech.program.editor.CommandManager" target="com.iirtech.program.editor.Command" relationship="TO_MANY">
+      <point x="1.6666666653009088E-4" y="-75.0" />
+      <point x="269.171" y="294.0" />
+      <point x="260.5" y="294.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="com.iirtech.program.editor.Play" target="com.iirtech.program.editor.Message" relationship="DEPENDENCY">
+      <point x="1.6666666657272344E-4" y="-28.5" />
+      <point x="102.671" y="709.0" />
+      <point x="-7.0" y="709.0" />
+      <point x="-7.0" y="128.0" />
+      <point x="94.5" y="128.0" />
+      <point x="0.0" y="51.5" />
+    </edge>
+    <edge source="com.iirtech.program.Main" target="com.iirtech.program.editor.Play" relationship="CREATE">
+      <point x="0.0" y="-40.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="com.iirtech.program.editor.CommandManager" target="com.iirtech.program.editor.TextCommand" relationship="DEPENDENCY">
+      <point x="-110.49983333333347" y="-21.5" />
+      <point x="77.0" y="586.5" />
+      <point x="-68.40131578947378" y="63.5" />
+    </edge>
+    <edge source="com.iirtech.program.editor.CommandManager" target="com.iirtech.program.editor.Command" relationship="DEPENDENCY">
+      <point x="-23.670833333333462" y="-75.0" />
+      <point x="-15.0" y="28.5" />
+    </edge>
+    <edge source="com.iirtech.program.editor.CommandManager" target="com.iirtech.program.editor.Message" relationship="DEPENDENCY">
+      <point x="1.6666666653009088E-4" y="75.0" />
+      <point x="269.171" y="709.0" />
+      <point x="-7.0" y="709.0" />
+      <point x="-7.0" y="128.0" />
+      <point x="94.5" y="128.0" />
+      <point x="0.0" y="51.5" />
+    </edge>
+    <edge source="com.iirtech.program.editor.Play" target="com.iirtech.program.editor.CommandManager" relationship="CREATE">
+      <point x="61.0" y="0.0" />
+      <point x="284.171" y="763.5" />
+      <point x="15.00016666666653" y="75.0" />
+    </edge>
+    <edge source="com.iirtech.program.editor.Text" target="com.iirtech.program.editor.Message" relationship="DEPENDENCY">
+      <point x="0.0" y="-74.5" />
+      <point x="0.0" y="51.5" />
+    </edge>
+    <edge source="com.iirtech.program.editor.TextCommand" target="com.iirtech.program.editor.Text" relationship="TO_ONE">
+      <point x="-50.901315789473784" y="-63.5" />
+      <point x="0.0" y="74.5" />
+    </edge>
+    <edge source="com.iirtech.program.editor.CommandManager" target="com.iirtech.program.editor.Command" relationship="TO_ONE">
+      <point x="1.6666666653009088E-4" y="-75.0" />
+      <point x="269.171" y="294.0" />
+      <point x="260.5" y="294.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="com.iirtech.program.editor.TextCommand" target="com.iirtech.program.editor.Command" relationship="REALIZATION">
+      <point x="73.0" y="-63.5" />
+      <point x="-42.098684210526216" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.85" showDependencies="true" x="276.0000000000001" y="501.17647058823536" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>Production</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+
