@@ -26,9 +26,9 @@ exit : 종료
 Easy Text Editor를 사용하려면 다음 단계를 따르십시오.
 
 ```
-git clone https://github.com/JoongSeokD/easy-text-editor
-
-java -jar easy-text-editor-1.0.0.jar [임의의 문자열]
+> git clone https://github.com/JoongSeokD/easy-text-editor
+> cd easy-text-editor
+> java -jar -Dfile.encoding=UTF-8 easy-text-editor-1.0.0.jar [임의의 문자열]
 
 예시 )
 > 출력: 안녕하세요. 식사는 하셨나요?
@@ -55,13 +55,17 @@ java -jar easy-text-editor-1.0.0.jar [임의의 문자열]
 ## Easy Text Editor에 기여하는 방법 
 Esay Text Editor에 기여하려면 다음 단계를 따라 주십시오.
 
-1. 이 저장소를 fork 하십시오.
+[how to fork repository](https://data-make.tistory.com/228)
+
+1. 이 저장소를 [fork](https://github.com/JoongSeokD/easy-text-editor/fork) 하십시오.
 2. branch 만들기 : `git checkout -b <branch_name>`.
 3. 변경하고 커밋합니다. `git commit -m '<commit_message>'`
 4. 원래 분기로 푸시 : `git push origin <project_name>/<location>`
 5. pull request를 요청합니다.
 
 또는 [pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) 에 대한 GitHub 설명서를 참조하십시오. 
+
+
 
 
 ## 연락처
