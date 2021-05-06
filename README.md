@@ -26,9 +26,9 @@ exit : 종료
 Easy Text Editor를 사용하려면 다음 단계를 따르십시오.
 
 ```
-git clone https://github.com/JoongSeokD/easy-text-editor
-
-java -jar -Dfile.encoding=UTF-8 easy-text-editor-1.0.0.jar [임의의 문자열]
+> git clone https://github.com/JoongSeokD/easy-text-editor
+> cd easy-text-editor
+> java -jar -Dfile.encoding=UTF-8 easy-text-editor-1.0.0.jar [임의의 문자열]
 
 예시 )
 > 출력: 안녕하세요. 식사는 하셨나요?
