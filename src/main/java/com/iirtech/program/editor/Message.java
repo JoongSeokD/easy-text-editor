@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 public enum Message {
 
     INVALID_COMMAND("\n명령어를 인식할 수 없습니다. "),
-    INVALID_PARAMETER("\n파라미터 개수가 맞지 않습니다. "),
     INVALID_INDEX_NUMBER_FORMAT("\n치환할 문자열의 시작 인덱스와 종료 인덱스를 바르게 입력해 주세요. "),
     EXAMPLE_EDIT_COMMAND("\nex) edit(1:시작인덱스, 2:끝인덱스, \"반갑습니다.\":치환할 문자열)"),
 

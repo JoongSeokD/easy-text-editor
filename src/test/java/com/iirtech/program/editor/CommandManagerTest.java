@@ -51,13 +51,12 @@ class CommandManagerTest {
             "edit(a,2,\"\")",
             "edit(1,b,\"\")",
             "edit(1,2,\"\",3)",
-            "edit(1,2,\"\",\")",
             "edit(1,2,\"\"\"asdasd)",
             "edit(1,2,\"\",,,)",
             "edit(1,2,\"\",,,,)",
     })
-    void edit_input_parameter_wrong_test(String method){
-        assertThrows(IllegalArgumentException.class, () -> getEdit(method));
+    void edit_input_parameter_wrong_test(String command){
+        assertThrows(IllegalArgumentException.class, () -> getEdit(command));
     }
 
     @DisplayName("edit 명령어 - 성공")
@@ -77,9 +76,11 @@ class CommandManagerTest {
             "edit( +1 , 2 , \"\" ) ",
             "edit( +1 , +2 , \"\" ) ",
             "edit( 1 , +2 , \"\" ) ",
+            "edit( 1 , +2 , \",,,\" ) ",
+            "edit( 1 , +2 , \",,\",\" ) ",
     })
-    void edit_input_correct_test(String method){
-        assertDoesNotThrow(()-> getEdit(method));
+    void edit_input_correct_test(String command){
+        assertDoesNotThrow(()-> getEdit(command));
     }
 
     @Test
@@ -111,21 +112,13 @@ class CommandManagerTest {
         assertThrows(IllegalStateException.class, () -> redo());
     }
 
-    void validEditExecute() {
-        getEdit("edit(1,3,\"hello\")");
-    }
+    void validEditExecute() { getEdit("edit(1,3,\"hello\")"); }
+    void invalidEditExecute() { getEdit("edit(2,1,\"\")"); }
+    void undo() { manager.undo(); }
+    void redo() { manager.redo(); }
 
-    void invalidEditExecute() {
-        getEdit("edit(2,1,\"\")");
-    }
-    void getEdit(String method) {
+    void getEdit(String command) {
         manager.edit(new TextCommand(builder()
-                .editMethod(method).build()));
-    }
-    void undo() {
-        manager.undo();
-    }
-    void redo() {
-        manager.redo();
+                .editCommand(command).build()));
     }
 }

@@ -40,7 +40,7 @@ public class Play {
 
     private void executeCommand(CommandManager manager, String command) {
         if (isEdit(command)){
-            manager.edit(new TextCommand(Text.builder().editMethod(command).build()));
+            manager.edit(new TextCommand(Text.builder().editCommand(command).build()));
         }else if (isUndo(command)){
             manager.undo();
         }else if (isRedo(command)){

@@ -8,24 +8,24 @@ import static com.iirtech.program.editor.Message.*;
 public class Text{
 
     private String output;
-    private final String editMethod;
+    private final String editCommand;
 
     public void edit(){
-        validationEditMethod();
+        validationEditCommand();
         replaceOutput();
     }
 
-    private void validationEditMethod() {
-        if (!getEditMethodRegExp()){
+    private void validationEditCommand() {
+        if (!regExpEditCommand()){
             throw new IllegalArgumentException(
                     ""+INVALID_COMMAND + EXAMPLE_EDIT_COMMAND + HELP_COMMAND);
         }
     }
 
-    private boolean getEditMethodRegExp() {
+    private boolean regExpEditCommand() {
         final var numberRegExp = "[\\s]*[+]?[0-9]{1,10}[\\s]*";
         final var StringRegExp = "[\\s]*[\"](.*)[\"][\\s]*";
-        return editMethod.matches("^edit[\\s]*\\(" +
+        return editCommand.matches("^edit[\\s]*\\(" +
                 numberRegExp +
                 "[,]" + numberRegExp +
                 "[,]" + StringRegExp +
@@ -34,7 +34,7 @@ public class Text{
 
     private void replaceOutput() {
         try {
-            output = replace(escapeParentheses().split(","));
+            output = replace(escapeParentheses());
         }catch (StringIndexOutOfBoundsException e){
             throw new StringIndexOutOfBoundsException(
                     ""+INVALID_INDEX_NUMBER_FORMAT + EXAMPLE_EDIT_COMMAND + HELP_COMMAND);
@@ -42,21 +42,18 @@ public class Text{
     }
 
     private String escapeParentheses() {
-        final int begin = editMethod.indexOf("(") + 1;
-        final int end = editMethod.lastIndexOf(")");
-        return editMethod.substring(begin, end);
+        final int begin = editCommand.indexOf("(") + 1;
+        final int end = editCommand.lastIndexOf(")");
+        return editCommand.substring(begin, end);
     }
 
-    private String replace(String[] params) {
-        if (params.length != 3){
-            throw new IllegalArgumentException(
-                    ""+INVALID_PARAMETER + EXAMPLE_EDIT_COMMAND + HELP_COMMAND);
-        }
+    private String replace(String param) {
+        final var params = param.split(",");
         return new StringBuilder(output)
                 .replace(
                         getIndex(params[0]),
                         getIndex(params[1]),
-                        escapeQuotation(params[2]))
+                        escapeQuotation(getQuotationString(param)))
                 .toString();
     }
 
@@ -64,17 +61,19 @@ public class Text{
         return Integer.parseInt(param.trim());
     }
 
+    private String getQuotationString(String param) {
+        final var firstCommaCurrent = param.indexOf(",") + 1;
+        final var secondCommaCurrent = param.indexOf(",", firstCommaCurrent) + 1;
+        return param.substring(secondCommaCurrent);
+    }
+
     private String escapeQuotation(String quotationString) {
-        final int start = quotationString.indexOf("\"") + 1;
-        final int end = quotationString.lastIndexOf("\"");
+        final var start = quotationString.indexOf("\"") + 1;
+        final var end = quotationString.lastIndexOf("\"");
         return quotationString.substring(start, end);
     }
 
-    public String getOutput() {
-        return this.output;
-    }
-    public void setOutput(String output) {
-        this.output = output;
-    }
+    public String getOutput() { return this.output; }
+    public void setOutput(String output) { this.output = output; }
     public void print(){ System.out.println("출력 : " + output); }
 }

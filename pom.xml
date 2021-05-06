@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.iirtech</groupId>
     <artifactId>easy-text-editor</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>easy-text-editor</name>
     <description>CLI 환경의 텍스트 편집기 프로그램입니다.</description>
     <properties>
